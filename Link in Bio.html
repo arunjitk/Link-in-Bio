@@ -1,0 +1,1101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Arunjit K. — Link in Bio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Geist:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  :root {
+    --bg-0: #07080a;
+    --bg-1: #0d0f12;
+    --bg-2: #14171c;
+    --ink-0: #f4f1ea;
+    --ink-1: #c8c3b8;
+    --ink-2: #807a6d;
+    --ink-3: #4a4640;
+    --line: rgba(244,241,234,0.08);
+    --line-strong: rgba(244,241,234,0.16);
+    --accent: #ff7a3d;
+    --accent-soft: rgba(255,122,61,0.18);
+    --glow-a: #ff7a3d;
+    --glow-b: #4a2a8a;
+    --glow-c: #0a3a4a;
+    --serif: 'Fraunces', 'Instrument Serif', serif;
+    --sans: 'Geist', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  [data-preset="editorial"] {
+    --bg-0: #ece7dd;
+    --bg-1: #e2dccf;
+    --bg-2: #d8d1c1;
+    --ink-0: #1d1a14;
+    --ink-1: #3a352b;
+    --ink-2: #6a6356;
+    --ink-3: #a59c8a;
+    --line: rgba(29,26,20,0.12);
+    --line-strong: rgba(29,26,20,0.22);
+    --accent: #b3411f;
+    --accent-soft: rgba(179,65,31,0.12);
+    --glow-a: #c97a4a;
+    --glow-b: #7a6242;
+    --glow-c: #c7b89a;
+  }
+
+  [data-preset="mono"] {
+    --bg-0: #fafaf7;
+    --bg-1: #f3f3ee;
+    --bg-2: #ebebe5;
+    --ink-0: #0a0a0a;
+    --ink-1: #2a2a2a;
+    --ink-2: #6a6a6a;
+    --ink-3: #a8a8a8;
+    --line: rgba(0,0,0,0.10);
+    --line-strong: rgba(0,0,0,0.20);
+    --accent: #0a0a0a;
+    --accent-soft: rgba(0,0,0,0.08);
+    --glow-a: #d8d8d8;
+    --glow-b: #c0c0c0;
+    --glow-c: #e8e8e8;
+    --serif: 'Geist', sans-serif;
+  }
+
+  [data-preset="terminal"] {
+    --bg-0: #0a0e0a;
+    --bg-1: #0f140f;
+    --bg-2: #131a13;
+    --ink-0: #c8ffd0;
+    --ink-1: #88c890;
+    --ink-2: #4a7a52;
+    --ink-3: #2a4a32;
+    --line: rgba(136,200,144,0.14);
+    --line-strong: rgba(136,200,144,0.28);
+    --accent: #6dff8a;
+    --accent-soft: rgba(109,255,138,0.14);
+    --glow-a: #1a4a2a;
+    --glow-b: #0a2a1a;
+    --glow-c: #2a5a3a;
+    --serif: 'JetBrains Mono', monospace;
+    --sans: 'JetBrains Mono', monospace;
+  }
+
+  [data-preset="dreamy"] {
+    --bg-0: #f0e6e0;
+    --bg-1: #e8dcd5;
+    --bg-2: #ddd0c8;
+    --ink-0: #2a1f2c;
+    --ink-1: #4a3a4d;
+    --ink-2: #7a6770;
+    --ink-3: #b09c9a;
+    --line: rgba(42,31,44,0.10);
+    --line-strong: rgba(42,31,44,0.20);
+    --accent: #a04668;
+    --accent-soft: rgba(160,70,104,0.14);
+    --glow-a: #f0a0b8;
+    --glow-b: #b08ec8;
+    --glow-c: #f5c5a8;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg-0);
+    color: var(--ink-0);
+    font-family: var(--sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background 600ms ease, color 600ms ease;
+  }
+
+  .bg-stage {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.55;
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+  [data-preset="editorial"] .blob,
+  [data-preset="mono"] .blob,
+  [data-preset="dreamy"] .blob {
+    mix-blend-mode: multiply;
+    opacity: 0.45;
+  }
+  .blob-a { width: 60vmax; height: 60vmax; background: var(--glow-a); top: -20vmax; left: -10vmax; animation: drift-a 24s ease-in-out infinite alternate; }
+  .blob-b { width: 50vmax; height: 50vmax; background: var(--glow-b); bottom: -15vmax; right: -10vmax; animation: drift-b 32s ease-in-out infinite alternate; }
+  .blob-c { width: 40vmax; height: 40vmax; background: var(--glow-c); top: 30vh; right: 20vw; animation: drift-c 28s ease-in-out infinite alternate; opacity: 0.35; }
+
+  @keyframes drift-a {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(15vw, 10vh) scale(1.15); }
+    100% { transform: translate(-8vw, 18vh) scale(0.95); }
+  }
+  @keyframes drift-b {
+    0%   { transform: translate(0,0) scale(1); }
+    50%  { transform: translate(-12vw, -10vh) scale(1.1); }
+    100% { transform: translate(8vw, -20vh) scale(0.9); }
+  }
+  @keyframes drift-c {
+    0%   { transform: translate(0,0) rotate(0); }
+    50%  { transform: translate(-20vw, 15vh) rotate(60deg); }
+    100% { transform: translate(10vw, -10vh) rotate(120deg); }
+  }
+
+  .grain {
+    position: fixed;
+    inset: -50%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.10;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    background-size: 200px 200px;
+    animation: grain-shift 1.6s steps(8) infinite;
+  }
+  @keyframes grain-shift {
+    0%   { transform: translate(0,0); }
+    20%  { transform: translate(-10%, 5%); }
+    40%  { transform: translate(8%, -8%); }
+    60%  { transform: translate(-6%, 12%); }
+    80%  { transform: translate(12%, -3%); }
+    100% { transform: translate(0,0); }
+  }
+
+  .vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+  }
+  [data-preset="editorial"] .vignette,
+  [data-preset="mono"] .vignette,
+  [data-preset="dreamy"] .vignette {
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.18) 100%);
+  }
+
+  .page {
+    position: relative;
+    z-index: 5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 56px 32px 96px;
+  }
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin-bottom: 80px;
+  }
+  .topbar .dot {
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .topbar-l, .topbar-r { display: flex; align-items: center; gap: 16px; }
+  .topbar .clock { font-variant-numeric: tabular-nums; }
+
+  .hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; gap: 24px; }
+    .page { padding: 32px 20px 80px; }
+    .topbar { margin-bottom: 48px; }
+  }
+
+  .avatar-wrap {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid var(--line-strong);
+    background: var(--bg-1);
+    box-shadow: 0 0 0 1px var(--line), 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .avatar-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 60%, var(--accent-soft));
+    pointer-events: none;
+  }
+  .avatar-wrap svg { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(40px, 6vw, 68px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0 0 12px;
+  }
+  .hero-name em {
+    font-style: italic;
+    font-weight: 300;
+  }
+  .hero-bio {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-1);
+    max-width: 480px;
+    margin: 0;
+  }
+  .hero-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .hero-meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .hero-meta .marker { width: 4px; height: 4px; background: var(--ink-2); border-radius: 50%; }
+
+  .section {
+    margin-top: 56px;
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    margin: 0;
+  }
+  .section-title .num {
+    color: var(--ink-3);
+    margin-right: 12px;
+  }
+  .section-count {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+  }
+
+  .grid {
+    display: grid;
+    gap: 12px;
+  }
+  .grid-social {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .grid-portfolio {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-apps {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (max-width: 900px) {
+    .grid-social { grid-template-columns: repeat(5, 1fr); }
+    .grid-apps   { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .grid-social { grid-template-columns: repeat(5, 1fr); gap: 8px; }
+    .grid-portfolio { grid-template-columns: 1fr; }
+    .grid-apps   { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  }
+
+  .card {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--bg-1);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 18px;
+    overflow: hidden;
+    transition: transform 320ms cubic-bezier(.2,.7,.2,1), border-color 320ms, background 320ms;
+    cursor: pointer;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120px 120px at var(--mx,50%) var(--my,50%), var(--accent-soft), transparent 70%);
+    opacity: 0;
+    transition: opacity 320ms;
+    pointer-events: none;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    border-color: var(--line-strong);
+    background: var(--bg-2);
+  }
+  .card:hover::before { opacity: 1; }
+  .card:focus-visible {
+    outline: 1px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .card-social {
+    aspect-ratio: 1 / 1;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding: 10%;
+    gap: 6%;
+  }
+  .card-social .icon-pixel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ink-1);
+    transition: color 320ms, transform 320ms cubic-bezier(.2,.7,.2,1);
+  }
+  .card-social .icon-pixel svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .card-social:hover .icon-pixel {
+    color: var(--accent);
+    transform: scale(1.04);
+  }
+  .card-social .name {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    text-align: center;
+    transition: color 320ms;
+  }
+  .card-social:hover .name { color: var(--ink-0); }
+  .card-social .arrow {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 10px; height: 10px;
+    color: var(--ink-3);
+    opacity: 0.4;
+    transition: color 320ms, transform 320ms, opacity 320ms;
+  }
+  .card-social:hover .arrow {
+    color: var(--accent);
+    opacity: 1;
+    transform: translate(2px,-2px);
+  }
+  @media (max-width: 640px) {
+    .card-social { padding: 8%; }
+    .card-social .name { font-size: 8.5px; letter-spacing: 0.1em; }
+    .card-social .arrow { display: none; }
+  }
+
+  .card-portfolio {
+    min-height: 200px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card-portfolio .icon { width: 28px; height: 28px; color: var(--ink-1); transition: color 320ms; }
+  .card-portfolio:hover .icon { color: var(--accent); }
+  .card-portfolio .title {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 16px 0 6px;
+  }
+  .card-portfolio .desc {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    margin: 0;
+    max-width: 360px;
+  }
+  .card-portfolio .url {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card-portfolio:hover .url { color: var(--accent); }
+
+  .card-app {
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+  }
+  .card-app .icon { width: 20px; height: 20px; color: var(--ink-1); transition: color 320ms; }
+  .card-app:hover .icon { color: var(--accent); }
+  .card-app .name {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin: 14px 0 4px;
+  }
+  .card-app .tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    line-height: 1.4;
+  }
+  .card-app .arrow {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 11px; height: 11px;
+    color: var(--ink-3);
+    transition: color 320ms, transform 320ms;
+  }
+  .card-app:hover .arrow {
+    color: var(--accent);
+    transform: translate(2px,-2px);
+  }
+
+  .footer {
+    margin-top: 96px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .footer .accent-text { color: var(--ink-2); }
+</style>
+</head>
+<body>
+  <div class="bg-stage">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+  </div>
+  <div class="grain"></div>
+  <div class="vignette"></div>
+
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useMemo, useCallback } = React;
+
+    // ── Tweaks panel styles ──
+    const __TWEAKS_STYLE = `
+      .twk-panel{position:fixed;right:16px;bottom:16px;z-index:2147483646;width:280px;
+        max-height:calc(100vh - 32px);display:flex;flex-direction:column;
+        transform:scale(var(--dc-inv-zoom,1));transform-origin:bottom right;
+        background:rgba(250,249,247,.78);color:#29261b;
+        -webkit-backdrop-filter:blur(24px) saturate(160%);backdrop-filter:blur(24px) saturate(160%);
+        border:.5px solid rgba(255,255,255,.6);border-radius:14px;
+        box-shadow:0 1px 0 rgba(255,255,255,.5) inset,0 12px 40px rgba(0,0,0,.18);
+        font:11.5px/1.4 ui-sans-serif,system-ui,-apple-system,sans-serif;overflow:hidden}
+      .twk-hd{display:flex;align-items:center;justify-content:space-between;
+        padding:10px 8px 10px 14px;cursor:move;user-select:none}
+      .twk-hd b{font-size:12px;font-weight:600;letter-spacing:.01em}
+      .twk-x{appearance:none;border:0;background:transparent;color:rgba(41,38,27,.55);
+        width:22px;height:22px;border-radius:6px;cursor:default;font-size:13px;line-height:1}
+      .twk-x:hover{background:rgba(0,0,0,.06);color:#29261b}
+      .twk-body{padding:2px 14px 14px;display:flex;flex-direction:column;gap:10px;
+        overflow-y:auto;overflow-x:hidden;min-height:0;
+        scrollbar-width:thin;scrollbar-color:rgba(0,0,0,.15) transparent}
+      .twk-row{display:flex;flex-direction:column;gap:5px}
+      .twk-row-h{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
+      .twk-lbl{display:flex;justify-content:space-between;align-items:baseline;color:rgba(41,38,27,.72)}
+      .twk-lbl>span:first-child{font-weight:500}
+      .twk-val{color:rgba(41,38,27,.5);font-variant-numeric:tabular-nums}
+      .twk-sect{font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+        color:rgba(41,38,27,.45);padding:10px 0 0}
+      .twk-sect:first-child{padding-top:0}
+      .twk-field{appearance:none;width:100%;height:26px;padding:0 8px;
+        border:.5px solid rgba(0,0,0,.1);border-radius:7px;
+        background:rgba(255,255,255,.6);color:inherit;font:inherit;outline:none}
+      .twk-field:focus{border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.85)}
+      select.twk-field{padding-right:22px;
+        background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='rgba(0,0,0,.5)' d='M0 0h10L5 6z'/></svg>");
+        background-repeat:no-repeat;background-position:right 8px center}
+      .twk-toggle{position:relative;width:32px;height:18px;border:0;border-radius:999px;
+        background:rgba(0,0,0,.15);transition:background .15s;cursor:default;padding:0}
+      .twk-toggle[data-on="1"]{background:#34c759}
+      .twk-toggle i{position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;
+        background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25);transition:transform .15s}
+      .twk-toggle[data-on="1"] i{transform:translateX(14px)}
+    `;
+
+    function useTweaks(defaults) {
+      const [values, setValues] = useState(defaults);
+      const setTweak = useCallback((keyOrEdits, val) => {
+        const edits = typeof keyOrEdits === 'object' && keyOrEdits !== null
+          ? keyOrEdits : { [keyOrEdits]: val };
+        setValues((prev) => ({ ...prev, ...edits }));
+      }, []);
+      return [values, setTweak];
+    }
+
+    function TweaksPanel({ title = 'Tweaks', children }) {
+      const [open, setOpen] = useState(false);
+      const dragRef = useRef(null);
+      const offsetRef = useRef({ x: 16, y: 16 });
+      const PAD = 16;
+
+      const clampToViewport = useCallback(() => {
+        const panel = dragRef.current;
+        if (!panel) return;
+        const w = panel.offsetWidth, h = panel.offsetHeight;
+        const maxRight = Math.max(PAD, window.innerWidth - w - PAD);
+        const maxBottom = Math.max(PAD, window.innerHeight - h - PAD);
+        offsetRef.current = {
+          x: Math.min(maxRight, Math.max(PAD, offsetRef.current.x)),
+          y: Math.min(maxBottom, Math.max(PAD, offsetRef.current.y)),
+        };
+        panel.style.right = offsetRef.current.x + 'px';
+        panel.style.bottom = offsetRef.current.y + 'px';
+      }, []);
+
+      useEffect(() => {
+        if (!open) return;
+        clampToViewport();
+        window.addEventListener('resize', clampToViewport);
+        return () => window.removeEventListener('resize', clampToViewport);
+      }, [open, clampToViewport]);
+
+      useEffect(() => {
+        const onMsg = (e) => {
+          const t = e?.data?.type;
+          if (t === '__activate_edit_mode') setOpen(true);
+          else if (t === '__deactivate_edit_mode') setOpen(false);
+        };
+        window.addEventListener('message', onMsg);
+        window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+        return () => window.removeEventListener('message', onMsg);
+      }, []);
+
+      const dismiss = () => {
+        setOpen(false);
+        window.parent.postMessage({ type: '__edit_mode_dismissed' }, '*');
+      };
+
+      const onDragStart = (e) => {
+        const panel = dragRef.current;
+        if (!panel) return;
+        const r = panel.getBoundingClientRect();
+        const sx = e.clientX, sy = e.clientY;
+        const startRight = window.innerWidth - r.right;
+        const startBottom = window.innerHeight - r.bottom;
+        const move = (ev) => {
+          offsetRef.current = {
+            x: startRight - (ev.clientX - sx),
+            y: startBottom - (ev.clientY - sy),
+          };
+          clampToViewport();
+        };
+        const up = () => {
+          window.removeEventListener('mousemove', move);
+          window.removeEventListener('mouseup', up);
+        };
+        window.addEventListener('mousemove', move);
+        window.addEventListener('mouseup', up);
+      };
+
+      if (!open) return null;
+      return (
+        <>
+          <style>{__TWEAKS_STYLE}</style>
+          <div ref={dragRef} className="twk-panel"
+               style={{ right: offsetRef.current.x, bottom: offsetRef.current.y }}>
+            <div className="twk-hd" onMouseDown={onDragStart}>
+              <b>{title}</b>
+              <button className="twk-x" aria-label="Close tweaks"
+                      onMouseDown={(e) => e.stopPropagation()}
+                      onClick={dismiss}>✕</button>
+            </div>
+            <div className="twk-body">{children}</div>
+          </div>
+        </>
+      );
+    }
+
+    function TweakSection({ label }) {
+      return <div className="twk-sect">{label}</div>;
+    }
+
+    function TweakRow({ label, value, children, inline = false }) {
+      return (
+        <div className={inline ? 'twk-row twk-row-h' : 'twk-row'}>
+          <div className="twk-lbl">
+            <span>{label}</span>
+            {value != null && <span className="twk-val">{value}</span>}
+          </div>
+          {children}
+        </div>
+      );
+    }
+
+    function TweakSelect({ label, value, options, onChange }) {
+      return (
+        <TweakRow label={label}>
+          <select className="twk-field" value={value} onChange={(e) => onChange(e.target.value)}>
+            {options.map((o) => {
+              const v = typeof o === 'object' ? o.value : o;
+              const l = typeof o === 'object' ? o.label : o;
+              return <option key={v} value={v}>{l}</option>;
+            })}
+          </select>
+        </TweakRow>
+      );
+    }
+
+    // ── Data ──
+    const SOCIALS = [
+      { name: 'Instagram', url: 'https://www.instagram.com/whoisarun.visuals/', icon: 'instagram' },
+      { name: 'LinkedIn',  url: 'https://www.linkedin.com/in/arunjitk/',         icon: 'linkedin'  },
+      { name: 'VSCO',      url: 'https://vsco.co/storiesbyhopelesswanderer/gallery', icon: 'vsco'  },
+      { name: 'Facebook',  url: 'https://www.facebook.com/profile.php?id=61584148964527', icon: 'facebook' },
+      { name: 'Twitter',   url: 'https://x.com/homospeian__', icon: 'twitter' },
+    ];
+
+    const PORTFOLIO = [
+      {
+        name: 'Portfolio',
+        url: 'https://arunjitk.org/',
+        desc: 'Photography, design and selected work — a slow look through the lens.',
+        icon: 'camera',
+      },
+      {
+        name: 'GitHub',
+        url: 'https://github.com/k5ymaker',
+        desc: 'Open source experiments, scripts, and the source behind the self‑hosted stack.',
+        icon: 'github',
+      },
+    ];
+
+    const APPS = [
+      { name: 'Tools Suite',  url: 'https://tools.arunjitk.xyz/',     tag: 'Curated utility collection',     icon: 'spark'   },
+      { name: 'Fileshare',    url: 'https://fileshare.arunjitk.xyz/', tag: 'Self-hosted file sharing',       icon: 'share'   },
+      { name: 'VERT',         url: 'https://fileconvert.arunjitk.xyz/', tag: 'On-device file conversion',    icon: 'convert' },
+      { name: 'Pastefy',      url: 'https://pastebin.arunjitk.xyz/',  tag: 'Open-source pastebin',           icon: 'paste'   },
+      { name: 'Web-Check',    url: 'https://webcheck.arunjitk.xyz/',  tag: 'Open-source OSINT for any URL',  icon: 'shield'  },
+      { name: 'IT-Tools',     url: 'https://ittools.arunjitk.xyz/',   tag: 'Handy tools for developers',     icon: 'wrench'  },
+      { name: 'Draw',         url: 'https://draw.arunjitk.xyz/',      tag: 'Flowcharts & diagrams',          icon: 'pen'     },
+    ];
+
+    // ── Pixel-art social icons (13×13) ──
+    const PIXEL_ICONS = {
+      instagram: [
+        '#############',
+        '#...........#',
+        '#.#########.#',
+        '#.#.......#.#',
+        '#.#.#####.#.#',
+        '#.#.#...#.#.#',
+        '#.#.#...#.#.#',
+        '#.#.#...#.#.#',
+        '#.#.#####.#.#',
+        '#.#.......#.#',
+        '#.#########.#',
+        '#...........#',
+        '#############',
+      ],
+      linkedin: [
+        '#############',
+        '#...........#',
+        '#.##........#',
+        '#.##........#',
+        '#...........#',
+        '#.##..####..#',
+        '#.##.##..##.#',
+        '#.##.##..##.#',
+        '#.##.##..##.#',
+        '#.##.##..##.#',
+        '#...........#',
+        '#...........#',
+        '#############',
+      ],
+      vsco: [
+        '#############',
+        '#...........#',
+        '#....###....#',
+        '#..##...##..#',
+        '#.#.......#.#',
+        '#.#...#...#.#',
+        '#.#..###..#.#',
+        '#.#...#...#.#',
+        '#.#.......#.#',
+        '#..##...##..#',
+        '#....###....#',
+        '#...........#',
+        '#############',
+      ],
+      facebook: [
+        '#############',
+        '#...........#',
+        '#......###..#',
+        '#.....#...#.#',
+        '#.....#.....#',
+        '#.....#.....#',
+        '#...#####...#',
+        '#.....#.....#',
+        '#.....#.....#',
+        '#.....#.....#',
+        '#.....#.....#',
+        '#...........#',
+        '#############',
+      ],
+      twitter: [
+        '#############',
+        '#...........#',
+        '#.##.....##.#',
+        '#..##...##..#',
+        '#...##.##...#',
+        '#....###....#',
+        '#....###....#',
+        '#...##.##...#',
+        '#..##...##..#',
+        '#.##.....##.#',
+        '#...........#',
+        '#...........#',
+        '#############',
+      ],
+    };
+
+    function PixelIcon({ name }) {
+      const grid = PIXEL_ICONS[name];
+      if (!grid) return null;
+      const size = grid.length;
+      return (
+        <svg viewBox={`0 0 ${size} ${size}`} xmlns="http://www.w3.org/2000/svg"
+             shapeRendering="crispEdges" width="100%" height="100%"
+             style={{ display: 'block', imageRendering: 'pixelated' }}>
+          {grid.flatMap((row, y) =>
+            row.split('').map((ch, x) =>
+              ch === '#' ? <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill="currentColor"/> : null
+            )
+          )}
+        </svg>
+      );
+    }
+
+    // ── Monochrome line icons ──
+    const Icon = ({ name, className = '' }) => {
+      const common = { width: '100%', height: '100%', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinecap: 'round', strokeLinejoin: 'round', className };
+      switch (name) {
+        case 'arrow': return (
+          <svg {...common}><path d="M7 17L17 7M9 7h8v8"/></svg>
+        );
+        case 'camera': return (
+          <svg {...common}><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="4"/></svg>
+        );
+        case 'spark': return (
+          <svg {...common}><path d="M12 3v6M12 15v6M3 12h6M15 12h6M5.5 5.5l4.2 4.2M14.3 14.3l4.2 4.2M5.5 18.5l4.2-4.2M14.3 9.7l4.2-4.2"/></svg>
+        );
+        case 'share': return (
+          <svg {...common}><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.2 10.8l7.6-3.6M8.2 13.2l7.6 3.6"/></svg>
+        );
+        case 'convert': return (
+          <svg {...common}><path d="M4 8h12l-3-3M20 16H8l3 3"/></svg>
+        );
+        case 'paste': return (
+          <svg {...common}><rect x="6" y="4" width="12" height="16" rx="2"/><path d="M9 4V3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1M9 11h6M9 14h4"/></svg>
+        );
+        case 'shield': return (
+          <svg {...common}><path d="M12 3l8 3v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V6z"/><path d="M9.5 12l2 2 3.5-4"/></svg>
+        );
+        case 'wrench': return (
+          <svg {...common}><path d="M14.7 6.3a4 4 0 1 1 3 3L8 19a2.1 2.1 0 1 1-3-3z"/></svg>
+        );
+        case 'pen': return (
+          <svg {...common}><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg>
+        );
+        case 'github': return (
+          <svg {...common}><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.43v-1.5c-2.5.55-3.03-1.07-3.03-1.07-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.91.06 1.39.94 1.39.94.8 1.38 2.1.98 2.62.75.08-.58.31-.98.57-1.21-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.09-.23-.4-1.15.09-2.4 0 0 .76-.24 2.5.92a8.7 8.7 0 0 1 4.55 0c1.74-1.16 2.5-.92 2.5-.92.49 1.25.18 2.17.09 2.4.58.63.93 1.44.93 2.42 0 3.46-2.11 4.22-4.12 4.44.32.28.61.83.61 1.67v2.47c0 .24.17.52.62.43A9 9 0 0 0 12 3z"/></svg>
+        );
+        default: return null;
+      }
+    };
+
+    // ── Pixel-art avatar (16×16) ──
+    const PIXEL_GRID = [
+      '................',
+      '.....kkkkkk.....',
+      '....khhhhhhk....',
+      '...khhhhhhhhk...',
+      '..khhsssssshhk..',
+      '..khssssssssbk..',
+      '..ksseksseskkk..',
+      '..kssssssssssk..',
+      '..kssbsssssbsk..',
+      '...kssbbbbbssk..',
+      '....kssssssk....',
+      '...kxxxxxxxxk...',
+      '..kjccccccccjk..',
+      '.kjccclllccccjk.',
+      '.kjcclllllcccjk.',
+      '.kkkkkkkkkkkkkk.',
+    ];
+    const PIXEL_PALETTE = {
+      '.': 'transparent',
+      k: '#0a0a0a',
+      s: '#d9b18a',
+      h: '#1a120a',
+      b: '#2a1d10',
+      e: '#0a0a0a',
+      x: '#a88560',
+      c: '#1a1a1f',
+      j: '#2a2a30',
+      l: '#ff7a3d',
+    };
+
+    function PixelAvatar() {
+      const size = 16;
+      return (
+        <svg viewBox={`0 0 ${size} ${size}`} xmlns="http://www.w3.org/2000/svg" shapeRendering="crispEdges">
+          <rect width={size} height={size} fill="#0d0f12"/>
+          {PIXEL_GRID.flatMap((row, y) =>
+            row.split('').map((ch, x) => {
+              const fill = PIXEL_PALETTE[ch] || 'transparent';
+              if (fill === 'transparent') return null;
+              return <rect key={`${x}-${y}`} x={x} y={y} width="1" height="1" fill={fill}/>;
+            })
+          )}
+        </svg>
+      );
+    }
+
+    // ── Card components ──
+    function CardBase({ href, children, className = '', style }) {
+      const ref = useRef(null);
+      const onMove = (e) => {
+        const r = ref.current.getBoundingClientRect();
+        ref.current.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        ref.current.style.setProperty('--my', `${e.clientY - r.top}px`);
+      };
+      const onClick = (e) => {
+        e.preventDefault();
+        const w = window.open(href, '_blank', 'noopener,noreferrer');
+        if (!w) window.top.location.href = href;
+      };
+      return (
+        <a ref={ref} href={href} target="_blank" rel="noopener noreferrer"
+           className={`card ${className}`} style={style}
+           onMouseMove={onMove} onClick={onClick}>
+          {children}
+        </a>
+      );
+    }
+
+    function SocialCard({ s }) {
+      return (
+        <CardBase href={s.url} className="card-social">
+          <span className="icon icon-pixel"><PixelIcon name={s.icon}/></span>
+          <span className="name">{s.name}</span>
+          <span className="arrow"><Icon name="arrow"/></span>
+        </CardBase>
+      );
+    }
+
+    function PortfolioCard({ p }) {
+      return (
+        <CardBase href={p.url} className="card-portfolio">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <span className="icon"><Icon name={p.icon}/></span>
+            <span className="icon" style={{ width: 14, height: 14, opacity: 0.5 }}><Icon name="arrow"/></span>
+          </div>
+          <div>
+            <h3 className="title">{p.name}</h3>
+            <p className="desc">{p.desc}</p>
+            <div className="url">
+              <span style={{ width: 6, height: 1, background: 'currentColor' }}></span>
+              {p.url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+            </div>
+          </div>
+        </CardBase>
+      );
+    }
+
+    function AppCard({ a }) {
+      return (
+        <CardBase href={a.url} className="card-app">
+          <span className="icon"><Icon name={a.icon}/></span>
+          <span className="arrow"><Icon name="arrow"/></span>
+          <div>
+            <div className="name">{a.name}</div>
+            <div className="tag">{a.tag}</div>
+          </div>
+        </CardBase>
+      );
+    }
+
+    // ── Live clock (Toronto) ──
+    function Clock() {
+      const [t, setT] = useState(() => new Date());
+      useEffect(() => {
+        const id = setInterval(() => setT(new Date()), 1000);
+        return () => clearInterval(id);
+      }, []);
+      const fmt = t.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'America/Toronto' });
+      return <span className="clock">{fmt} TOR</span>;
+    }
+
+    // ── Presets ──
+    const PRESETS = [
+      { id: 'dark',      label: 'Dark Moody'  },
+      { id: 'editorial', label: 'Editorial'   },
+      { id: 'mono',      label: 'Mono'        },
+      { id: 'terminal',  label: 'Terminal'    },
+      { id: 'dreamy',    label: 'Dreamy'      },
+    ];
+
+    // ── Main App ──
+    function App() {
+      const [t, setTweak] = useTweaks({ preset: 'dark' });
+
+      useEffect(() => {
+        if (t.preset === 'dark') {
+          document.body.removeAttribute('data-preset');
+        } else {
+          document.body.setAttribute('data-preset', t.preset);
+        }
+      }, [t.preset]);
+
+      return (
+        <div className="page">
+          <div className="topbar">
+            <div className="topbar-l">
+              <span><span className="dot"></span>AVAILABLE FOR WORK</span>
+            </div>
+            <div className="topbar-r">
+              <span>43.6532° N, 79.3832° W</span>
+              <span style={{ opacity: 0.4 }}>·</span>
+              <Clock />
+            </div>
+          </div>
+
+          <div className="hero">
+            <div className="avatar-wrap">
+              <PixelAvatar />
+            </div>
+            <div>
+              <h1 className="hero-name">Arunjit K.</h1>
+              <p className="hero-bio">Photographer, cybersecurity engineer, and a hopeless wanderer. I build small tools, secure big systems, and chase light on the side.</p>
+              <div className="hero-meta">
+                <span><i className="marker"></i>PHOTOGRAPHY</span>
+                <span><i className="marker"></i>CYBERSECURITY</span>
+                <span><i className="marker"></i>SELF-HOSTED</span>
+              </div>
+            </div>
+          </div>
+
+          <section className="section">
+            <div className="section-head">
+              <h2 className="section-title"><span className="num">01 /</span>PORTFOLIO</h2>
+              <span className="section-count">{String(PORTFOLIO.length).padStart(2,'0')} PROJECTS</span>
+            </div>
+            <div className="grid grid-portfolio">
+              {PORTFOLIO.map((p) => <PortfolioCard key={p.name} p={p}/>)}
+            </div>
+          </section>
+
+          <section className="section">
+            <div className="section-head">
+              <h2 className="section-title"><span className="num">02 /</span>ELSEWHERE</h2>
+              <span className="section-count">{String(SOCIALS.length).padStart(2,'0')} CHANNELS</span>
+            </div>
+            <div className="grid grid-social">
+              {SOCIALS.map((s) => <SocialCard key={s.name} s={s}/>)}
+            </div>
+          </section>
+
+          <section className="section">
+            <div className="section-head">
+              <h2 className="section-title"><span className="num">03 /</span>SELF-HOSTED</h2>
+              <span className="section-count">{String(APPS.length).padStart(2,'0')} APPS · ARUNJITK.XYZ</span>
+            </div>
+            <div className="grid grid-apps">
+              {APPS.map((a) => <AppCard key={a.name} a={a}/>)}
+            </div>
+          </section>
+
+          <div className="footer">
+            <span>© {new Date().getFullYear()} ARUNJIT K.</span>
+            <span className="accent-text">CRAFTED IN THE DARK</span>
+            <span>v1.0 · {PRESETS.find(p => p.id === t.preset)?.label.toUpperCase()}</span>
+          </div>
+
+          <TweaksPanel title="Tweaks">
+            <TweakSection label="Aesthetic preset" />
+            <TweakSelect
+              label="Vibe"
+              value={t.preset}
+              options={PRESETS.map(p => ({ value: p.id, label: p.label }))}
+              onChange={(v) => setTweak('preset', v)}
+            />
+            <div style={{ fontSize: 10.5, lineHeight: 1.5, color: 'rgba(41,38,27,.55)', paddingTop: 4 }}>
+              Five hand-tuned moods. Dark moody is the default — try Editorial for daylight, Terminal for a hacker feel.
+            </div>
+          </TweaksPanel>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+  </script>
+</body>
+</html>
