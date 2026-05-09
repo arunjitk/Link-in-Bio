@@ -743,6 +743,7 @@
       { name: 'Web-Check',    url: 'https://webcheck.arunjitk.xyz/',  tag: 'Open-source OSINT for any URL',  icon: 'shield'  },
       { name: 'IT-Tools',     url: 'https://ittools.arunjitk.xyz/',   tag: 'Handy tools for developers',     icon: 'wrench'  },
       { name: 'Draw',         url: 'https://draw.arunjitk.xyz/',      tag: 'Flowcharts & diagrams',          icon: 'pen'     },
+      { name: 'FundLens',     url: 'https://fundlens.arunjitk.xyz/',  tag: 'Indian mutual fund research',    icon: 'fundlens'},
     ];
 
     // ── Pixel-art social icons (13×13) ──
@@ -874,6 +875,9 @@
         );
         case 'github': return (
           <svg {...common}><path d="M12 3a9 9 0 0 0-2.85 17.54c.45.08.62-.2.62-.43v-1.5c-2.5.55-3.03-1.07-3.03-1.07-.41-1.04-1-1.32-1-1.32-.82-.56.06-.55.06-.55.91.06 1.39.94 1.39.94.8 1.38 2.1.98 2.62.75.08-.58.31-.98.57-1.21-2-.23-4.1-1-4.1-4.45 0-.98.35-1.79.93-2.42-.09-.23-.4-1.15.09-2.4 0 0 .76-.24 2.5.92a8.7 8.7 0 0 1 4.55 0c1.74-1.16 2.5-.92 2.5-.92.49 1.25.18 2.17.09 2.4.58.63.93 1.44.93 2.42 0 3.46-2.11 4.22-4.12 4.44.32.28.61.83.61 1.67v2.47c0 .24.17.52.62.43A9 9 0 0 0 12 3z"/></svg>
+        );
+        case 'fundlens': return (
+          <svg {...common}><polyline points="3 17 8 11 13 14 21 6"/><line x1="3" y1="21" x2="21" y2="21"/><line x1="17" y1="6" x2="21" y2="6"/><line x1="21" y1="6" x2="21" y2="10"/></svg>
         );
         default: return null;
       }
