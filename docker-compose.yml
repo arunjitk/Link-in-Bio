@@ -1,0 +1,8 @@
+services:
+  linkinbio:
+    build: .
+    image: linkinbio:latest
+    container_name: linkinbio
+    restart: unless-stopped
+    ports:
+      - "80:80"
