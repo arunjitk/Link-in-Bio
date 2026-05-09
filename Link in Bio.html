@@ -377,12 +377,30 @@
     outline-offset: 2px;
   }
 
+  .social-card-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  .social-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-1);
+    text-align: center;
+    transition: color 320ms;
+  }
+  .social-card-wrap:hover .social-label { color: var(--ink-0); }
+
   .card-social {
     aspect-ratio: 1 / 1;
-    display: grid;
-    grid-template-rows: 1fr auto;
-    padding: 10%;
-    gap: 6%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16%;
   }
   .card-social .icon-pixel {
     width: 100%;
@@ -403,16 +421,6 @@
     color: var(--accent);
     transform: scale(1.04);
   }
-  .card-social .name {
-    font-family: var(--mono);
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink-2);
-    text-align: center;
-    transition: color 320ms;
-  }
-  .card-social:hover .name { color: var(--ink-0); }
   .card-social .arrow {
     position: absolute;
     top: 10px;
@@ -428,9 +436,9 @@
     transform: translate(2px,-2px);
   }
   @media (max-width: 640px) {
-    .card-social { padding: 8%; }
-    .card-social .name { font-size: 8.5px; letter-spacing: 0.1em; }
+    .card-social { padding: 14%; }
     .card-social .arrow { display: none; }
+    .social-label { font-size: 9.5px; letter-spacing: 0.06em; color: var(--ink-0); }
   }
 
   .card-portfolio {
@@ -928,9 +936,12 @@
         ref.current.style.setProperty('--my', `${e.clientY - r.top}px`);
       };
       const onClick = (e) => {
-        e.preventDefault();
-        const w = window.open(href, '_blank', 'noopener,noreferrer');
-        if (!w) window.top.location.href = href;
+        // Only intercept inside sandboxed iframes (design preview); native target=_blank handles normal browsing
+        if (window.self !== window.top) {
+          e.preventDefault();
+          const w = window.open(href, '_blank', 'noopener,noreferrer');
+          if (!w) window.top.location.href = href;
+        }
       };
       return (
         <a ref={ref} href={href} target="_blank" rel="noopener noreferrer"
@@ -943,11 +954,13 @@
 
     function SocialCard({ s }) {
       return (
-        <CardBase href={s.url} className="card-social">
-          <span className="icon icon-pixel"><PixelIcon name={s.icon}/></span>
-          <span className="name">{s.name}</span>
-          <span className="arrow"><Icon name="arrow"/></span>
-        </CardBase>
+        <div className="social-card-wrap">
+          <CardBase href={s.url} className="card-social">
+            <span className="icon icon-pixel"><PixelIcon name={s.icon}/></span>
+            <span className="arrow"><Icon name="arrow"/></span>
+          </CardBase>
+          <span className="social-label">{s.name}</span>
+        </div>
       );
     }
 
