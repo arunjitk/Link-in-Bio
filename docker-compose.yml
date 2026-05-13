@@ -4,5 +4,20 @@ services:
     image: linkinbio:latest
     container_name: linkinbio
     restart: unless-stopped
+    depends_on:
+      - chat-relay
     ports:
       - "80:80"
+
+  chat-relay:
+    build: ./server
+    image: linkinbio-chat-relay:latest
+    container_name: linkinbio-chat-relay
+    restart: unless-stopped
+    env_file:
+      - ./server/.env
+    expose:
+      - "3001"
+    # Uncomment to expose the health endpoint to the host for debugging:
+    # ports:
+    #   - "127.0.0.1:3001:3001"

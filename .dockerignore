@@ -2,3 +2,5 @@
 .claude
 *.md
 LICENSE
+server/node_modules
+server/.env
